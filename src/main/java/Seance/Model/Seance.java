@@ -6,7 +6,7 @@ public class Seance {
 
 
 
-        private int id;
+        private int Seance_id;
         private int memberId;
         private int entraineurId;
         private LocalDateTime dateHeure;
@@ -16,8 +16,8 @@ public class Seance {
         }
 
 
-        public Seance(int id, int memberId, int entraineurId, LocalDateTime dateHeure) {
-            this.id = id;
+        public Seance(int Seance_id, int memberId, int entraineurId, LocalDateTime dateHeure) {
+            this.Seance_id = Seance_id;
             this.memberId = memberId;
             this.entraineurId = entraineurId;
             this.dateHeure = dateHeure;
@@ -25,11 +25,11 @@ public class Seance {
 
 
         public int getId() {
-            return id;
+            return Seance_id;
         }
 
-        public void setId(int id) {
-            this.id = id;
+        public void setId(int Seance_id) {
+            this.Seance_id = Seance_id;
         }
 
         public int getMemberId() {

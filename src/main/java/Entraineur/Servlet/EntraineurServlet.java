@@ -1,4 +1,7 @@
 package Entraineur.Servlet;
 
-public class EntraineurServlet {
+import jakarta.servlet.http.HttpServlet;
+
+public class EntraineurServlet extends HttpServlet {
+
 }

@@ -3,7 +3,8 @@ package Member.Model;
 
 import java.time.LocalDate;
 
-public class Member {
+public class Member extends User.Model.User {
+
 
         private int id;
         private String nom;
@@ -12,11 +13,11 @@ public class Member {
 
 
         public Member() {
-
         }
 
 
-        public Member(int id, String nom, LocalDate dateNaissance, String sport) {
+        public Member(int userId, String username, String password, String role, int id, String nom, LocalDate dateNaissance, String sport) {
+            super(userId, username, password, role); // userId maps to user_id in DB
             this.id = id;
             this.nom = nom;
             this.dateNaissance = dateNaissance;
@@ -55,5 +56,5 @@ public class Member {
         public void setSport(String sport) {
             this.sport = sport;
         }
-    }
+}
 
