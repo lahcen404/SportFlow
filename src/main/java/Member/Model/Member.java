@@ -3,58 +3,72 @@ package Member.Model;
 
 import java.time.LocalDate;
 
-public class Member extends User.Model.User {
+public class Member {
 
 
         private int id;
-        private String nom;
-        private LocalDate dateNaissance;
+        private String name;
+        private String email;
+        private String password;
+        private String dateNaissance;
         private String sport;
 
 
-        public Member() {
-        }
+    public Member(int id, String name, String email, String password, String dateNaissance, String sport) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.dateNaissance = dateNaissance;
+        this.sport = sport;
+    }
 
+    public Member(String name, String email, String password, String dateNaissance, String sport) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.dateNaissance = dateNaissance;
+        this.sport = sport;
+    }
 
-        public Member(int userId, String username, String password, String role, int id, String nom, LocalDate dateNaissance, String sport) {
-            super(userId, username, password, role); // userId maps to user_id in DB
-            this.id = id;
-            this.nom = nom;
-            this.dateNaissance = dateNaissance;
-            this.sport = sport;
-        }
+    public String getName() {
+        return name;
+    }
 
-        // Getters and Setters
-        public int getId() {
-            return id;
-        }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-        public void setId(int id) {
-            this.id = id;
-        }
+    public String getEmail() {
+        return email;
+    }
 
-        public String getNom() {
-            return nom;
-        }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-        public void setNom(String nom) {
-            this.nom = nom;
-        }
+    public String getPassword() {
+        return password;
+    }
 
-        public LocalDate getDateNaissance() {
-            return dateNaissance;
-        }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-        public void setDateNaissance(LocalDate dateNaissance) {
-            this.dateNaissance = dateNaissance;
-        }
+    public String getDateNaissance() {
+        return dateNaissance;
+    }
 
-        public String getSport() {
-            return sport;
-        }
+    public void setDateNaissance(String dateNaissance) {
+        this.dateNaissance = dateNaissance;
+    }
 
-        public void setSport(String sport) {
-            this.sport = sport;
-        }
+    public String getSport() {
+        return sport;
+    }
+
+    public void setSport(String sport) {
+        this.sport = sport;
+    }
 }
 
