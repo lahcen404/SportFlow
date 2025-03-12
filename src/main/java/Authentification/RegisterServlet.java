@@ -42,6 +42,7 @@ if(role.equals("member")){
     MemberDAO memberDAO = new MemberDAO();
 
     memberDAO.ajouterMember(member);
+
 }else if(role.equals("entraineur")){
 
     String username = req.getParameter("username");
