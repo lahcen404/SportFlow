@@ -24,3 +24,9 @@
 0:0:0:0:0:0:0:1 - - [12/Mar/2025:14:50:57 +0000] "POST /SportFlow/Register HTTP/1.1" 200 -
 0:0:0:0:0:0:0:1 - - [12/Mar/2025:14:52:44 +0000] "POST /SportFlow/Register HTTP/1.1" 200 -
 0:0:0:0:0:0:0:1 - - [12/Mar/2025:14:54:03 +0000] "POST /SportFlow/Register HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [12/Mar/2025:15:41:41 +0000] "GET /SportFlow/Register HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [12/Mar/2025:15:41:51 +0000] "GET /SportFlow/MainRegister.jsp HTTP/1.1" 200 5952
+0:0:0:0:0:0:0:1 - - [12/Mar/2025:15:41:57 +0000] "GET /SportFlow/MainRegister.jsp HTTP/1.1" 200 5952
+0:0:0:0:0:0:0:1 - - [12/Mar/2025:15:42:11 +0000] "GET /SportFlow/MainRegister.jsp HTTP/1.1" 200 5952
+0:0:0:0:0:0:0:1 - - [12/Mar/2025:15:43:25 +0000] "POST /SportFlow/Register HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [12/Mar/2025:15:45:19 +0000] "GET /SportFlow/MainRegister.jsp HTTP/1.1" 200 5952
