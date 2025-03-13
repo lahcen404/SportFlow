@@ -24,7 +24,7 @@
         }
         body {
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(26, 26, 26, 0.7)),
-            url('https://i.pinimg.com/736x/39/cd/68/39cd68e6225948f8124fd72b8f5e1052.jpg') no-repeat center center fixed;
+            url('https://i.pinimg.com/736x/1e/da/48/1eda480b629bcf0bc36fa2c53404b089.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #ffffff;
             font-family: 'Arial', sans-serif;

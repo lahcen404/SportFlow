@@ -22,12 +22,14 @@ public class LoginServlet extends HttpServlet {
     private MemberDAO memberDAO = new MemberDAO();
     private EntraineurDAO entraineurDAO = new EntraineurDAO();
 
+
     @Override
     public void init() throws ServletException {
         super.init();
 
         memberDAO = new MemberDAO();
         entraineurDAO = new EntraineurDAO();
+
 
     }
 
@@ -36,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        String role = req.getParameter("role");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
@@ -52,8 +54,6 @@ public class LoginServlet extends HttpServlet {
         }
 
 
-
-
             Entraineur entraineur = entraineurDAO.loginEntraineur(email,password);
 
 
@@ -62,8 +62,20 @@ public class LoginServlet extends HttpServlet {
             System.out.println("Logiin succes");
         resp.sendRedirect("index.jsp");
         return;
+        }
 
-    }
+            if ("lahcen.maskour2003@gmail.com".equals(email) && "lahcen".equals(password)) {
+                session.setAttribute("user", "admin");
+                session.setAttribute("role", "admin");
+                System.out.println("Admin login success");
+                resp.sendRedirect("adminDashboard.jsp");
+                return;
+            }
+
+
+
+
+
         req.setAttribute("errorMessage", "Invalid email or password!");
         req.getRequestDispatcher("login.jsp").forward(req, resp);
 
