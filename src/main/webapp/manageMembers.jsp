@@ -4,19 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SportFlow - Admin Dashboard</title>
-    <!-- Tailwind CSS CDN -->
+    <title>SportFlow - Manage Members</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
         @keyframes bounceIn {
             0% { transform: scale(0.8); opacity: 0; }
             60% { transform: scale(1.05); opacity: 1; }
             100% { transform: scale(1); }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
         @keyframes rotateBorder {
             0% { border-color: #FFD700; }
@@ -45,18 +43,17 @@
         .nav-link:hover {
             color: #e6c200;
         }
-        .card {
+        .table-container {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+        }
+        .btn {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: bounceIn 1s ease-out forwards;
         }
-        .card:hover {
-            transform: scale(1.1) rotate(2deg);
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
-            border-color: #e6c200;
-            animation: rotateBorder 2s infinite;
-        }
-        .hero-text {
-            animation: fadeIn 1.5s ease-in forwards;
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
         }
         footer {
             background: rgba(0, 0, 0, 0.9);
@@ -79,35 +76,37 @@
 
 <!-- Main Body -->
 <main class="flex-grow py-20 mt-16">
-    <!-- Hero Section -->
-    <div class="text-center mb-16">
-        <h1 class="text-6xl font-extrabold text-[#FFD700] mb-8 hero-text">Welcome, Admin!</h1>
-        <p class="text-xl text-gray-300 mb-12 hero-text" style="animation-delay: 0.5s;">
-            Control and optimize your SportFlow system with ease.
-        </p>
-        <div class="flex justify-center space-x-12">
-            <!-- Manage Members Card -->
-            <a href="manageMembers.jsp" class="card bg-[#1a1a1a] border-2 border-[#FFD700] rounded-xl p-6 w-72" style="animation-delay: 0.8s;">
-                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop"
-                     alt="Members" class="w-full h-48 object-cover rounded-lg mb-4">
-                <h3 class="text-3xl font-bold text-[#FFD700]">Manage Members</h3>
-                <p class="text-gray-400 mt-2">Add, edit, or remove gym members.</p>
-            </a>
-            <!-- Manage Entraineurs Card -->
-            <a href="manageEntraineurs.jsp" class="card bg-[#1a1a1a] border-2 border-[#FFD700] rounded-xl p-6 w-72" style="animation-delay: 1s;">
-                <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?q=80&w=2069&auto=format&fit=crop"
-                     alt="Entraineurs" class="w-full h-48 object-cover rounded-lg mb-4">
-                <h3 class="text-3xl font-bold text-[#FFD700]">Manage Entraineurs</h3>
-                <p class="text-gray-400 mt-2">Oversee trainers and their schedules.</p>
-            </a>
-            <!-- Manage Séances Card -->
-            <a href="manageSeances.jsp" class="card bg-[#1a1a1a] border-2 border-[#FFD700] rounded-xl p-6 w-72" style="animation-delay: 1.2s;">
-                <img src="https://images.unsplash.com/photo-1607962837359-5e7e89f86776?q=80&w=2070&auto=format&fit=crop"
-                     alt="Séances" class="w-full h-48 object-cover rounded-lg mb-4">
-                <h3 class="text-3xl font-bold text-[#FFD700]">Manage Séances</h3>
-                <p class="text-gray-400 mt-2">Schedule and manage gym sessions.</p>
-            </a>
+    <div class="text-center mb-12">
+        <h1 class="text-5xl font-extrabold text-[#FFD700] mb-6 animate-fade-in">Manage Members</h1>
+        <p class="text-xl text-gray-300 animate-fade-in" style="animation-delay: 0.5s;">View and manage gym members below.</p>
+    </div>
+    <div class="table-container mx-auto max-w-5xl p-6">
+        <div class="flex justify-end mb-4">
+            <a href="MainRegister.jsp" class="btn bg-[#FFD700] text-black font-semibold py-2 px-4 rounded-lg">Add Member</a>
         </div>
+        <table class="w-full text-left text-gray-300">
+            <thead>
+            <tr class="border-b border-[#FFD700]">
+                <th class="py-3 px-4">ID</th>
+                <th class="py-3 px-4">Name</th>
+                <th class="py-3 px-4">Email</th>
+                <th class="py-3 px-4">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Placeholder Data (Replace with dynamic data from MemberDAO) -->
+            <tr class="border-b border-gray-700">
+                <td class="py-3 px-4">1</td>
+                <td class="py-3 px-4">John Doe</td>
+                <td class="py-3 px-4">john.doe@example.com</td>
+                <td class="py-3 px-4">
+                    <a href="editMember.jsp?id=1" class="text-[#FFD700] hover:text-[#e6c200]">Edit</a> |
+                    <a href="deleteMember.jsp?id=1" class="text-red-500 hover:text-red-400">Delete</a>
+                </td>
+            </tr>
+            <!-- Add more rows dynamically -->
+            </tbody>
+        </table>
     </div>
 </main>
 
