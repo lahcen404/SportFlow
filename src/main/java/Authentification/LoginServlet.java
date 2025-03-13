@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
         if (member != null) {
             session.setAttribute("user", member);
             System.out.println("Logiin succes");
-            resp.sendRedirect("index.jsp");
+            resp.sendRedirect("memberDashboard.jsp");
             return;
         }
 
