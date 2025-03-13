@@ -170,3 +170,4 @@
 0:0:0:0:0:0:0:1 - - [13/Mar/2025:14:43:02 +0000] "POST /SportFlow/Login HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [13/Mar/2025:14:43:02 +0000] "GET /SportFlow/adminDashboard.jsp HTTP/1.1" 200 5601
 0:0:0:0:0:0:0:1 - - [13/Mar/2025:14:43:09 +0000] "GET /SportFlow/manageMembers.jsp HTTP/1.1" 200 4875
+0:0:0:0:0:0:0:1 - - [13/Mar/2025:14:47:25 +0000] "GET /SportFlow/manageEntraineurs.jsp HTTP/1.1" 200 4900
