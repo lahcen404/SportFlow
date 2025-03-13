@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="Member.DAO.MemberDAO, Member.Model.Member, java.util.List" %>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +61,6 @@
             border-top: 1px solid #FFD700;
             animation: fadeIn 2s ease-in forwards;
         }
-        /* Ensure table is scrollable if too wide */
         .table-container table {
             width: 100%;
             overflow-x: auto;
@@ -74,10 +73,10 @@
 <nav class="navbar p-4 flex justify-between items-center fixed top-0 w-full z-10">
     <div class="text-4xl font-extrabold text-[#FFD700] tracking-wide">SportFlow Admin</div>
     <div class="space-x-8">
-        <a href="manageMembers.jsp" class="nav-link text-[#FFD700] text-xl font-semibold">Manage Members</a>
+        <a href="MemberServlet" class="nav-link text-[#FFD700] text-xl font-semibold">Manage Members</a>
         <a href="manageEntraineurs.jsp" class="nav-link text-[#FFD700] text-xl font-semibold">Manage Entraineurs</a>
         <a href="manageSeances.jsp" class="nav-link text-[#FFD700] text-xl font-semibold">Manage Séances</a>
-        <a href="LogoutServlet" class="nav-link text-[#FFD700] text-xl font-semibold hover:text-red-500">Logout</a>
+        <a href="Logout" class="nav-link text-[#FFD700] text-xl font-semibold hover:text-red-500">Logout</a>
     </div>
 </nav>
 
@@ -103,42 +102,33 @@
             </tr>
             </thead>
             <tbody>
-            <%
-                try {
-                    MemberDAO memberDAO = new MemberDAO();
-                    List<Member> members = memberDAO.getAllMembers();
-                    if (members != null && !members.isEmpty()) {
-                        for (Member member : members) {
-            %>
-            <tr class="border-b border-gray-700">
-                <td class="py-3 px-4"><%= member.getId() %></td>
-                <td class="py-3 px-4"><%= member.getUserame() != null ? member.getUserame() : "N/A" %></td>
-                <td class="py-3 px-4"><%= member.getEmail() != null ? member.getEmail() : "N/A" %></td>
-                <td class="py-3 px-4"><%= member.getDateNaissance() != null ? member.getDateNaissance() : "N/A" %></td>
-                <td class="py-3 px-4"><%= member.getSport() != null ? member.getSport() : "N/A" %></td>
-                <td class="py-3 px-4">
-                    <a href="editMember.jsp?id=<%= member.getId() %>" class="text-[#FFD700] hover:text-[#e6c200]">Edit</a> |
-                    <a href="deleteMember.jsp?id=<%= member.getId() %>" class="text-red-500 hover:text-red-400">Delete</a>
-                </td>
-            </tr>
-            <%
-                }
-            } else {
-            %>
-            <tr>
-                <td colspan="6" class="py-3 px-4 text-center">No members found.</td>
-            </tr>
-            <%
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            %>
-            <tr>
-                <td colspan="6" class="py-3 px-4 text-center text-red-500">Error fetching members: <%= e.getMessage() %></td>
-            </tr>
-            <%
-                }
-            %>
+            <c:choose>
+                <c:when test="${not empty members}">
+                    <c:forEach var="member" items="${members}">
+                        <tr class="border-b border-gray-700">
+                            <td class="py-3 px-4">${member.id}</td>
+                            <td class="py-3 px-4">${member.userame != null ? member.userame : 'N/A'}</td>
+                            <td class="py-3 px-4">${member.email != null ? member.email : 'N/A'}</td>
+                            <td class="py-3 px-4">${member.dateNaissance != null ? member.dateNaissance : 'N/A'}</td>
+                            <td class="py-3 px-4">${member.sport != null ? member.sport : 'N/A'}</td>
+                            <td class="py-3 px-4">
+                                <a href="editMember.jsp?id=${member.id}" class="text-[#FFD700] hover:text-[#e6c200]">Edit</a> |
+                                <a href="deleteMember.jsp?id=${member.id}" class="text-red-500 hover:text-red-400">Delete</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </c:when>
+                <c:when test="${not empty errorMessage}">
+                    <tr>
+                        <td colspan="6" class="py-3 px-4 text-center text-red-500">${errorMessage}</td>
+                    </tr>
+                </c:when>
+                <c:otherwise>
+                    <tr>
+                        <td colspan="6" class="py-3 px-4 text-center">No members found.</td>
+                    </tr>
+                </c:otherwise>
+            </c:choose>
             </tbody>
         </table>
     </div>
@@ -148,13 +138,5 @@
 <footer class="p-6 text-center text-gray-400">
     <p>© 2025 SportFlow. Created by <span class="text-[#FFD700] font-semibold">Lahcen Ait Maskour</span>. Images by <a href="https://unsplash.com" class="text-[#FFD700] hover:text-[#e6c200]">Unsplash</a>.</p>
 </footer>
-
-<!-- Security Check -->
-<%
-    HttpSession sessionCheck = request.getSession(false);
-    if (sessionCheck == null || sessionCheck.getAttribute("user") == null || !"admin".equals(sessionCheck.getAttribute("user"))) {
-        response.sendRedirect("login.jsp");
-    }
-%>
 </body>
 </html>

@@ -70,7 +70,7 @@
         <a href="manageMembers.jsp" class="nav-link text-[#FFD700] text-xl font-semibold">Manage Members</a>
         <a href="manageEntraineurs.jsp" class="nav-link text-[#FFD700] text-xl font-semibold">Manage Entraineurs</a>
         <a href="manageSeances.jsp" class="nav-link text-[#FFD700] text-xl font-semibold">Manage Séances</a>
-        <a href="LogoutServlet" class="nav-link text-[#FFD700] text-xl font-semibold hover:text-red-500">Logout</a>
+        <a href="Logout" class="nav-link text-[#FFD700] text-xl font-semibold hover:text-red-500">Logout</a>
     </div>
 </nav>
 
