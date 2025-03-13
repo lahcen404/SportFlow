@@ -83,11 +83,16 @@
     <!-- Form Section -->
     <div class="form-section">
         <h2 class="text-4xl font-bold text-center text-[#FFD700] mb-8 animate-slide-in">Login to SportFlow</h2>
+
+        <% if (request.getAttribute("errorMessage") != null) { %>
+        <p class="text-red-500 text-center mb-4 animate-pulse"><%= request.getAttribute("errorMessage") %></p>
+        <% } %>
+
         <form action="Login" method="post" class="space-y-5">
             <!-- Username -->
             <div class="animate-slide-in" style="animation-delay: 0.1s;">
-                <label for="username" class="block text-[#FFD700] font-semibold text-lg">Username</label>
-                <input type="text" id="username" name="username" class="w-full p-3 bg-[#1a1a1a] text-white border border-[#FFD700] rounded-lg" required>
+                <label for="email" class="block text-[#FFD700] font-semibold text-lg">Email</label>
+                <input type="text" id="email" name="email" class="w-full p-3 bg-[#1a1a1a] text-white border border-[#FFD700] rounded-lg" required>
             </div>
 
             <!-- Password -->

@@ -7,36 +7,48 @@ public class Member {
 
 
         private int id;
-        private String name;
+        private String username;
         private String email;
         private String password;
         private String dateNaissance;
         private String sport;
 
 
-    public Member(int id, String name, String email, String password, String dateNaissance, String sport) {
+    public Member(int id, String username, String email, String password, String dateNaissance, String sport) {
         this.id = id;
-        this.name = name;
+        this.username = username;
         this.email = email;
         this.password = password;
         this.dateNaissance = dateNaissance;
         this.sport = sport;
     }
 
-    public Member(String name, String email, String password, String dateNaissance, String sport) {
-        this.name = name;
+    public Member(String username, String email, String password, String dateNaissance, String sport) {
+        this.username = username;
         this.email = email;
         this.password = password;
         this.dateNaissance = dateNaissance;
         this.sport = sport;
     }
 
-    public String getName() {
-        return name;
+    public Member() {
+
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUserame() {
+        return username;
+    }
+
+    public void setUserame(String username) {
+        this.username = username;
     }
 
     public String getEmail() {

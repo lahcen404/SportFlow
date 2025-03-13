@@ -4,33 +4,45 @@ package Entraineur.Model;
 
 public class Entraineur  {
     private int id;
-    private String name;
+    private String username;
     private String email;
     private String password;
     private String specialite;
 
 
-    public Entraineur(int id, String name, String email, String password, String specialite) {
+    public Entraineur(int id, String username, String email, String password, String specialite) {
         this.id = id;
-        this.name = name;
+        this.username = username;
         this.email = email;
         this.password = password;
         this.specialite = specialite;
     }
 
-    public Entraineur(String name, String email, String password, String specialite) {
-        this.name = name;
+    public Entraineur(String username, String email, String password, String specialite) {
+        this.username = username;
         this.email = email;
         this.password = password;
         this.specialite = specialite;
     }
 
-    public String getName() {
-        return name;
+    public Entraineur() {
+
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUserame() {
+        return username;
+    }
+
+    public void setUserame(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
