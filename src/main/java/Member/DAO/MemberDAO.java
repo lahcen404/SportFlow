@@ -7,13 +7,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import static Utils.DBConnection.getConnection;
 
 
 public class MemberDAO {
 
     public void  ajouterMember(Member member) {
 
-        try (Connection con = DBConnection.getConnection()) {
+        try (Connection con = getConnection()) {
 
             String query = "insert into Members(username,email,password,dateNaissance,sport) values(?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(query);
@@ -33,7 +37,7 @@ public class MemberDAO {
     public Member loginMember(String email, String password)  {
 
         Member member = null;
-        try(Connection con = DBConnection.getConnection()){
+        try(Connection con = getConnection()){
             String query = "SELECT * FROM Members WHERE email=? AND password=?";
             PreparedStatement stmnt = con.prepareStatement(query);
             stmnt.setString(1, email);
@@ -51,6 +55,26 @@ public class MemberDAO {
         }
 
         return member;
+    }
+
+    public List<Member> getAllMembers() {
+        List<Member> members = new ArrayList<>();
+        String query = "SELECT id, username, email, dateNaissance, sport FROM members"; // Adjust table name if different
+        try (Connection conn = getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String username = rs.getString("username");
+                String email = rs.getString("email");
+                String dateNaissance = rs.getString("dateNaissance");
+                String sport = rs.getString("sport");
+                members.add(new Member(id, username, email, null, dateNaissance, sport)); // Password omitted
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Log properly in production
+        }
+        return members;
     }
 
 }

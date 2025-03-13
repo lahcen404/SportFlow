@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="Member.DAO.MemberDAO, Member.Model.Member, java.util.List" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SportFlow - Manage Members</title>
+    <title>SportFlow - Manage Séances</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @keyframes fadeIn {
@@ -61,12 +60,6 @@
             border-top: 1px solid #FFD700;
             animation: fadeIn 2s ease-in forwards;
         }
-        /* Ensure table is scrollable if too wide */
-        .table-container table {
-            width: 100%;
-            overflow-x: auto;
-            display: block;
-        }
     </style>
 </head>
 <body>
@@ -84,61 +77,53 @@
 <!-- Main Body -->
 <main class="flex-grow py-20 mt-16">
     <div class="text-center mb-12">
-        <h1 class="text-5xl font-extrabold text-[#FFD700] mb-6 animate-fade-in">Manage Members</h1>
-        <p class="text-xl text-gray-300 animate-fade-in" style="animation-delay: 0.5s;">View and manage gym members below.</p>
+        <h1 class="text-5xl font-extrabold text-[#FFD700] mb-6 animate-fade-in">Manage Séances</h1>
+        <p class="text-xl text-gray-300 animate-fade-in" style="animation-delay: 0.5s;">View and manage gym sessions and their enrolled members below.</p>
     </div>
     <div class="table-container mx-auto max-w-6xl p-6">
         <div class="flex justify-end mb-4">
-            <a href="addMember.jsp" class="btn bg-[#FFD700] text-black font-semibold py-2 px-4 rounded-lg">Add Member</a>
+            <a href="addSeance.jsp" class="btn bg-[#FFD700] text-black font-semibold py-2 px-4 rounded-lg">Add Séance</a>
         </div>
         <table class="w-full text-left text-gray-300">
             <thead>
             <tr class="border-b border-[#FFD700]">
                 <th class="py-3 px-4">ID</th>
-                <th class="py-3 px-4">Username</th>
-                <th class="py-3 px-4">Email</th>
-                <th class="py-3 px-4">Date of Birth</th>
-                <th class="py-3 px-4">Sport</th>
+                <th class="py-3 px-4">Session Name</th>
+                <th class="py-3 px-4">Trainer</th>
+                <th class="py-3 px-4">Date</th>
+                <th class="py-3 px-4">Enrolled Members</th>
                 <th class="py-3 px-4">Actions</th>
             </tr>
             </thead>
             <tbody>
-            <%
-                try {
-                    MemberDAO memberDAO = new MemberDAO();
-                    List<Member> members = memberDAO.getAllMembers();
-                    if (members != null && !members.isEmpty()) {
-                        for (Member member : members) {
-            %>
+            <!-- Placeholder Data (Replace with dynamic data from SeanceDAO) -->
             <tr class="border-b border-gray-700">
-                <td class="py-3 px-4"><%= member.getId() %></td>
-                <td class="py-3 px-4"><%= member.getUserame() != null ? member.getUserame() : "N/A" %></td>
-                <td class="py-3 px-4"><%= member.getEmail() != null ? member.getEmail() : "N/A" %></td>
-                <td class="py-3 px-4"><%= member.getDateNaissance() != null ? member.getDateNaissance() : "N/A" %></td>
-                <td class="py-3 px-4"><%= member.getSport() != null ? member.getSport() : "N/A" %></td>
+                <td class="py-3 px-4">1</td>
+                <td class="py-3 px-4">Yoga Class</td>
+                <td class="py-3 px-4">Jane Smith</td>
+                <td class="py-3 px-4">2025-03-15</td>
                 <td class="py-3 px-4">
-                    <a href="editMember.jsp?id=<%= member.getId() %>" class="text-[#FFD700] hover:text-[#e6c200]">Edit</a> |
-                    <a href="deleteMember.jsp?id=<%= member.getId() %>" class="text-red-500 hover:text-red-400">Delete</a>
+                    <a href="viewMembers.jsp?seanceId=1" class="text-[#FFD700] hover:text-[#e6c200]">View Members (3)</a>
+                </td>
+                <td class="py-3 px-4">
+                    <a href="editSeance.jsp?id=1" class="text-[#FFD700] hover:text-[#e6c200]">Edit</a> |
+                    <a href="deleteSeance.jsp?id=1" class="text-red-500 hover:text-red-400">Delete</a>
                 </td>
             </tr>
-            <%
-                }
-            } else {
-            %>
-            <tr>
-                <td colspan="6" class="py-3 px-4 text-center">No members found.</td>
+            <tr class="border-b border-gray-700">
+                <td class="py-3 px-4">2</td>
+                <td class="py-3 px-4">Strength Training</td>
+                <td class="py-3 px-4">Mike Johnson</td>
+                <td class="py-3 px-4">2025-03-16</td>
+                <td class="py-3 px-4">
+                    <a href="viewMembers.jsp?seanceId=2" class="text-[#FFD700] hover:text-[#e6c200]">View Members (5)</a>
+                </td>
+                <td class="py-3 px-4">
+                    <a href="editSeance.jsp?id=2" class="text-[#FFD700] hover:text-[#e6c200]">Edit</a> |
+                    <a href="deleteSeance.jsp?id=2" class="text-red-500 hover:text-red-400">Delete</a>
+                </td>
             </tr>
-            <%
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            %>
-            <tr>
-                <td colspan="6" class="py-3 px-4 text-center text-red-500">Error fetching members: <%= e.getMessage() %></td>
-            </tr>
-            <%
-                }
-            %>
+            <!-- Add more rows dynamically -->
             </tbody>
         </table>
     </div>
