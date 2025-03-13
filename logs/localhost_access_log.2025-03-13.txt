@@ -119,3 +119,16 @@
 0:0:0:0:0:0:0:1 - - [13/Mar/2025:13:49:39 +0000] "GET /SportFlow/login.jsp HTTP/1.1" 200 4335
 0:0:0:0:0:0:0:1 - - [13/Mar/2025:13:49:53 +0000] "POST /SportFlow/Login HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [13/Mar/2025:13:49:53 +0000] "GET /SportFlow/adminDashboard.jsp HTTP/1.1" 404 671
+0:0:0:0:0:0:0:1 - - [13/Mar/2025:13:52:47 +0000] "GET /SportFlow/memberDashboard.jsp HTTP/1.1" 500 2816
+0:0:0:0:0:0:0:1 - - [13/Mar/2025:13:56:32 +0000] "GET /SportFlow/ HTTP/1.1" 200 6138
+0:0:0:0:0:0:0:1 - - [13/Mar/2025:13:56:34 +0000] "GET /SportFlow/login.jsp HTTP/1.1" 200 4335
+0:0:0:0:0:0:0:1 - - [13/Mar/2025:13:56:39 +0000] "POST /SportFlow/Login HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [13/Mar/2025:13:56:39 +0000] "GET /SportFlow/memberDashboard.jsp HTTP/1.1" 200 7230
+0:0:0:0:0:0:0:1 - - [13/Mar/2025:13:58:38 +0000] "GET /SportFlow/Logout HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [13/Mar/2025:13:58:38 +0000] "GET /SportFlow/login.jsp HTTP/1.1" 200 4335
+0:0:0:0:0:0:0:1 - - [13/Mar/2025:13:58:41 +0000] "GET /SportFlow/memberDashboard.jsp HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [13/Mar/2025:13:58:41 +0000] "GET /SportFlow/login.jsp HTTP/1.1" 200 4335
+0:0:0:0:0:0:0:1 - - [13/Mar/2025:14:29:30 +0000] "POST /SportFlow/Login HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [13/Mar/2025:14:29:30 +0000] "GET /SportFlow/adminDashboard.jsp HTTP/1.1" 200 4901
+0:0:0:0:0:0:0:1 - - [13/Mar/2025:14:33:19 +0000] "GET /SportFlow/adminDashboard.jsp HTTP/1.1" 200 5608
+0:0:0:0:0:0:0:1 - - [13/Mar/2025:14:33:33 +0000] "GET /SportFlow/manageMembers.jsp HTTP/1.1" 404 670

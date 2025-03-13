@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.logging.LogRecord;
 
-@WebFilter({"/memberDashboard.jsp"})
+@WebFilter({"/memberDashboard.jsp","/adminDashboard.jsp"})
 public class LoginFilter implements Filter {
 
 
