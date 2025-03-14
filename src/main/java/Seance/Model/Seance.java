@@ -23,8 +23,13 @@ public class Seance {
             this.dateHeure = dateHeure;
         }
 
+    public Seance(int memberId, int entraineurId, LocalDateTime dateHeure) {
+        this.memberId = memberId;
+        this.entraineurId = entraineurId;
+        this.dateHeure = dateHeure;
+    }
 
-        public int getId() {
+    public int getId() {
             return Seance_id;
         }
 

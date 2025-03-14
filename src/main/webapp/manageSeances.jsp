@@ -91,39 +91,12 @@
                 <th class="py-3 px-4">Session Name</th>
                 <th class="py-3 px-4">Trainer</th>
                 <th class="py-3 px-4">Date</th>
-                <th class="py-3 px-4">Enrolled Members</th>
                 <th class="py-3 px-4">Actions</th>
             </tr>
             </thead>
             <tbody>
-            <!-- Placeholder Data (Replace with dynamic data from SeanceDAO) -->
-            <tr class="border-b border-gray-700">
-                <td class="py-3 px-4">1</td>
-                <td class="py-3 px-4">Yoga Class</td>
-                <td class="py-3 px-4">Jane Smith</td>
-                <td class="py-3 px-4">2025-03-15</td>
-                <td class="py-3 px-4">
-                    <a href="viewMembers.jsp?seanceId=1" class="text-[#FFD700] hover:text-[#e6c200]">View Members (3)</a>
-                </td>
-                <td class="py-3 px-4">
-                    <a href="editSeance.jsp?id=1" class="text-[#FFD700] hover:text-[#e6c200]">Edit</a> |
-                    <a href="deleteSeance.jsp?id=1" class="text-red-500 hover:text-red-400">Delete</a>
-                </td>
-            </tr>
-            <tr class="border-b border-gray-700">
-                <td class="py-3 px-4">2</td>
-                <td class="py-3 px-4">Strength Training</td>
-                <td class="py-3 px-4">Mike Johnson</td>
-                <td class="py-3 px-4">2025-03-16</td>
-                <td class="py-3 px-4">
-                    <a href="viewMembers.jsp?seanceId=2" class="text-[#FFD700] hover:text-[#e6c200]">View Members (5)</a>
-                </td>
-                <td class="py-3 px-4">
-                    <a href="editSeance.jsp?id=2" class="text-[#FFD700] hover:text-[#e6c200]">Edit</a> |
-                    <a href="deleteSeance.jsp?id=2" class="text-red-500 hover:text-red-400">Delete</a>
-                </td>
-            </tr>
-            <!-- Add more rows dynamically -->
+
+            <!-- Add list seancees -->
             </tbody>
         </table>
     </div>
