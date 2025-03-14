@@ -18,15 +18,14 @@ public class MemberServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Security check
-        HttpSession session = request.getSession(false);
-        if (session == null || session.getAttribute("user") == null || !"admin".equals(session.getAttribute("user"))) {
-            response.sendRedirect("login.jsp");
-            return;
-        }
+
+//        HttpSession session = request.getSession(false);
+//        if (session == null || session.getAttribute("user") == null || !"admin".equals(session.getAttribute("user"))) {
+//            response.sendRedirect("login.jsp");
+//            return;
+//        }
 
         try {
-            // Initialize DAO and fetch members
             MemberDAO memberDAO = new MemberDAO();
             List<Member> members = memberDAO.getAllMembers();
             System.out.println(members);

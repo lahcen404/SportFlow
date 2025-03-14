@@ -8,6 +8,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import static Utils.DBConnection.getConnection;
 
 public class EntraineurDAO {
 
@@ -50,5 +54,27 @@ public class EntraineurDAO {
         }
 
         return entraineur;
+    }
+
+    public List<Entraineur> getAllEntraineurs() {
+        List<Entraineur> entraineurs = new ArrayList<>();
+        String query = "SELECT * FROM entraineurs";
+        try (Connection conn = getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String username = rs.getString("username");
+                String email = rs.getString("email");
+                String specialite = rs.getString("specialite");
+
+                entraineurs.add(new Entraineur(id, username, email, null,  specialite)); // Password omitted
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println(entraineurs);
+        return entraineurs;
+
     }
 }

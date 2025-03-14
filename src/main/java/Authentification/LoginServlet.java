@@ -38,7 +38,6 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String role = req.getParameter("role");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
 
@@ -66,7 +65,6 @@ public class LoginServlet extends HttpServlet {
 
             if ("lahcen.maskour2003@gmail.com".equals(email) && "lahcen".equals(password)) {
                 session.setAttribute("user", "admin");
-                session.setAttribute("role", "admin");
                 System.out.println("Admin login success");
                 resp.sendRedirect("adminDashboard.jsp");
                 return;

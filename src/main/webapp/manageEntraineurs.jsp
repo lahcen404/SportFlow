@@ -1,3 +1,5 @@
+<%@ page import="Entraineur.Model.Entraineur" %>
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -90,21 +92,31 @@
                 <th class="py-3 px-4">ID</th>
                 <th class="py-3 px-4">Name</th>
                 <th class="py-3 px-4">Email</th>
+                <th class="py-3 px-4">Specialite</th>
                 <th class="py-3 px-4">Actions</th>
             </tr>
             </thead>
             <tbody>
-            <!-- Placeholder Data (Replace with dynamic data from EntraineurDAO) -->
+            <%
+                List<Entraineur> entraineurs = (List<Entraineur>) request.getAttribute("entraineurs");
+                for(Entraineur entraineur : entraineurs){
+
+
+
+            %>
             <tr class="border-b border-gray-700">
-                <td class="py-3 px-4">1</td>
-                <td class="py-3 px-4">Jane Smith</td>
-                <td class="py-3 px-4">jane.smith@example.com</td>
+                <td class="py-3 px-4"><%=entraineur.getId()%></td>
+                <td class="py-3 px-4"><%=entraineur.getUserame()%></td>
+                <td class="py-3 px-4"><%=entraineur.getEmail()%></td>
+                <td class="py-3 px-4"><%=entraineur.getSpecialite()%></td>
+
                 <td class="py-3 px-4">
-                    <a href="editEntraineur.jsp?id=1" class="text-[#FFD700] hover:text-[#e6c200]">Edit</a> |
-                    <a href="deleteEntraineur.jsp?id=1" class="text-red-500 hover:text-red-400">Delete</a>
+                    <a href="editMember.jsp?id=<%=entraineur.getId()%>" class="text-[#FFD700] hover:text-[#e6c200]">Edit</a> |
+                    <a href="deleteMember.jsp?id=<%=entraineur.getId()%>" class="text-red-500 hover:text-red-400">Delete</a>
                 </td>
             </tr>
-            <!-- Add more rows dynamically -->
+            <%  } %>
+
             </tbody>
         </table>
     </div>
