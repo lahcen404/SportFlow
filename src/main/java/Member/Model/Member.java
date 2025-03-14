@@ -82,5 +82,17 @@ public class Member {
     public void setSport(String sport) {
         this.sport = sport;
     }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", dateNaissance='" + dateNaissance + '\'' +
+                ", sport='" + sport + '\'' +
+                '}';
+    }
 }
 

@@ -1,3 +1,5 @@
+<%@ page import="java.util.List" %>
+<%@ page import="Member.Model.Member" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <!DOCTYPE html>
@@ -102,33 +104,29 @@
             </tr>
             </thead>
             <tbody>
-            <c:choose>
-                <c:when test="${not empty members}">
-                    <c:forEach var="member" items="${members}">
+
+                <%
+                    List<Member> members = (List<Member>) request.getAttribute("members");
+                    for(Member member : members){
+
+
+
+                    %>
                         <tr class="border-b border-gray-700">
-                            <td class="py-3 px-4">${member.id}</td>
-                            <td class="py-3 px-4">${member.userame != null ? member.userame : 'N/A'}</td>
-                            <td class="py-3 px-4">${member.email != null ? member.email : 'N/A'}</td>
-                            <td class="py-3 px-4">${member.dateNaissance != null ? member.dateNaissance : 'N/A'}</td>
-                            <td class="py-3 px-4">${member.sport != null ? member.sport : 'N/A'}</td>
+                            <td class="py-3 px-4"><%=member.getId()%></td>
+                            <td class="py-3 px-4"><%=member.getUserame()%></td>
+                            <td class="py-3 px-4"><%=member.getEmail()%></td>
+                            <td class="py-3 px-4"><%=member.getDateNaissance()%></td>
+                            <td class="py-3 px-4"><%=member.getSport()%></td>
                             <td class="py-3 px-4">
-                                <a href="editMember.jsp?id=${member.id}" class="text-[#FFD700] hover:text-[#e6c200]">Edit</a> |
-                                <a href="deleteMember.jsp?id=${member.id}" class="text-red-500 hover:text-red-400">Delete</a>
+                                <a href="editMember.jsp?id=<%=member.getId()%>" class="text-[#FFD700] hover:text-[#e6c200]">Edit</a> |
+                                <a href="deleteMember.jsp?id=<%=member.getId()%>" class="text-red-500 hover:text-red-400">Delete</a>
                             </td>
                         </tr>
-                    </c:forEach>
-                </c:when>
-                <c:when test="${not empty errorMessage}">
-                    <tr>
-                        <td colspan="6" class="py-3 px-4 text-center text-red-500">${errorMessage}</td>
-                    </tr>
-                </c:when>
-                <c:otherwise>
-                    <tr>
-                        <td colspan="6" class="py-3 px-4 text-center">No members found.</td>
-                    </tr>
-                </c:otherwise>
-            </c:choose>
+                   <%  } %>
+
+
+
             </tbody>
         </table>
     </div>

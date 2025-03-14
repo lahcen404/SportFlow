@@ -87,7 +87,7 @@
         </p>
         <div class="flex justify-center space-x-12">
             <!-- Manage Members Card -->
-            <a href="manageMembers.jsp" class="card bg-[#1a1a1a] border-2 border-[#FFD700] rounded-xl p-6 w-72" style="animation-delay: 0.8s;">
+            <a href="./MemberServlet" class="card bg-[#1a1a1a] border-2 border-[#FFD700] rounded-xl p-6 w-72" style="animation-delay: 0.8s;">
                 <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop"
                      alt="Members" class="w-full h-48 object-cover rounded-lg mb-4">
                 <h3 class="text-3xl font-bold text-[#FFD700]">Manage Members</h3>

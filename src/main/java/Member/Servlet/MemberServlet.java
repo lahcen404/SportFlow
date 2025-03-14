@@ -4,6 +4,8 @@ import Member.DAO.MemberDAO;
 import Member.Model.Member;
 import java.io.IOException;
 import java.util.List;
+
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -27,23 +29,18 @@ public class MemberServlet extends HttpServlet {
             // Initialize DAO and fetch members
             MemberDAO memberDAO = new MemberDAO();
             List<Member> members = memberDAO.getAllMembers();
+            System.out.println(members);
 
-            // Debugging: Log to console
-            System.out.println("Members fetched: " + (members != null ? members.size() : "null"));
-            if (members != null) {
-                for (Member m : members) {
-                    System.out.println("Member: " + m.getId() + ", " + m.getUserame());
-                }
-            }
-
-            // Set attributes
+            RequestDispatcher dispatcher = request.getRequestDispatcher("manageMembers.jsp");
             request.setAttribute("members", members);
+            dispatcher.forward(request, response);
+
+
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "Error fetching members: " + e.getMessage());
         }
 
-        // Forward to JSP
-        request.getRequestDispatcher("manageMembers.jsp").forward(request, response);
+
     }
 }

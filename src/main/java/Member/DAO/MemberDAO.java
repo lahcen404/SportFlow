@@ -59,7 +59,7 @@ public class MemberDAO {
 
     public List<Member> getAllMembers() {
         List<Member> members = new ArrayList<>();
-        String query = "SELECT id, username, email, dateNaissance, sport FROM members"; // Adjust table name if different
+        String query = "SELECT * FROM members"; // Adjust table name if different
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(query);
              ResultSet rs = stmt.executeQuery()) {
@@ -74,7 +74,9 @@ public class MemberDAO {
         } catch (SQLException e) {
             e.printStackTrace(); // Log properly in production
         }
+        System.out.println(members);
         return members;
+
     }
 
 }
