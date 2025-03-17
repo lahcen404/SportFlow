@@ -15,7 +15,7 @@ import static Utils.DBConnection.getConnection;
 
 public class MemberDAO {
 
-    public void  ajouterMember(Member member) {
+    public void ajouterMember(Member member) {
 
         try (Connection con = getConnection()) {
 
@@ -28,29 +28,29 @@ public class MemberDAO {
             ps.setString(5, member.getSport());
             ps.executeUpdate();
 
-        }catch(SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
 
-    public Member loginMember(String email, String password)  {
+    public Member loginMember(String email, String password) {
 
         Member member = null;
-        try(Connection con = getConnection()){
+        try (Connection con = getConnection()) {
             String query = "SELECT * FROM Members WHERE email=? AND password=?";
             PreparedStatement stmnt = con.prepareStatement(query);
             stmnt.setString(1, email);
             stmnt.setString(2, password);
             ResultSet rs = stmnt.executeQuery();
 
-            if(rs.next()) {
+            if (rs.next()) {
                 member = new Member();
                 member.setId(rs.getInt("id"));
                 member.setUserame(rs.getString("username"));
             }
 
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
@@ -79,4 +79,41 @@ public class MemberDAO {
 
     }
 
+    public boolean updateMember(Member member)  {
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement stmnt = con.prepareStatement("UPDATE members set username=? , email=? , dateNaissance=? , sport=? where id=?")) {
+            stmnt.setString(1, member.getUserame());
+            stmnt.setString(2, member.getEmail());
+            stmnt.setString(3, member.getDateNaissance());
+            stmnt.setString(4, member.getSport());
+            stmnt.setInt(5, member.getId());
+            stmnt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        return false;
+    }
+    public Member getMemberById(int id) {
+        String query = "SELECT * FROM Members WHERE id = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                Member member = new Member();
+                member.setId(rs.getInt("id"));
+                member.setUserame(rs.getString("username"));
+                member.setEmail(rs.getString("email"));
+                member.setPassword(rs.getString("password"));
+                member.setDateNaissance(rs.getString("dateNaissance"));
+                member.setSport(rs.getString("sport"));
+                return member;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

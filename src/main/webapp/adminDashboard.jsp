@@ -70,8 +70,8 @@
 <nav class="navbar p-4 flex justify-between items-center fixed top-0 w-full z-10">
     <div class="text-4xl font-extrabold text-[#FFD700] tracking-wide">SportFlow Admin</div>
     <div class="space-x-8">
-        <a href="MemberServlet" class="nav-link text-[#FFD700] text-xl font-semibold">Manage Members</a>
-        <a href="EntraineurServlet" class="nav-link text-[#FFD700] text-xl font-semibold">Manage Entraineurs</a>
+        <a href="./MemberServlet" class="nav-link text-[#FFD700] text-xl font-semibold">Manage Members</a>
+        <a href="./EntraineurServlet" class="nav-link text-[#FFD700] text-xl font-semibold">Manage Entraineurs</a>
         <a href="manageSeances.jsp" class="nav-link text-[#FFD700] text-xl font-semibold">Manage Séances</a>
         <a href="Logout" class="nav-link text-[#FFD700] text-xl font-semibold hover:text-red-500">Logout</a>
     </div>
@@ -94,7 +94,7 @@
                 <p class="text-gray-400 mt-2">Add, edit, or remove gym members.</p>
             </a>
             <!-- Manage Entraineurs Card -->
-            <a href="EntraineurServlet" class="card bg-[#1a1a1a] border-2 border-[#FFD700] rounded-xl p-6 w-72" style="animation-delay: 1s;">
+            <a href="./EntraineurServlet" class="card bg-[#1a1a1a] border-2 border-[#FFD700] rounded-xl p-6 w-72" style="animation-delay: 1s;">
                 <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?q=80&w=2069&auto=format&fit=crop"
                      alt="Entraineurs" class="w-full h-48 object-cover rounded-lg mb-4">
                 <h3 class="text-3xl font-bold text-[#FFD700]">Manage Entraineurs</h3>

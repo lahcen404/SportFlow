@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SportFlow - Add Séance</title>
+    <title>SportFlow - Edit Member</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -47,26 +47,35 @@
 <!-- Main Body -->
 <main class="flex-grow py-20 mt-16">
     <div class="text-center mb-12">
-        <h1 class="text-5xl font-extrabold text-[#FFD700] mb-6 animate-fade-in">Add New Séance</h1>
-        <p class="text-xl text-gray-300 animate-fade-in" style="animation-delay: 0.5s;">Schedule a new session by filling in the details below.</p>
+        <h1 class="text-5xl font-extrabold text-[#FFD700] mb-6 animate-fade-in">Edit Member</h1>
+        <p class="text-xl text-gray-300 animate-fade-in" style="animation-delay: 0.5s;">Update member details below.</p>
     </div>
     <div class="form-container mx-auto max-w-lg p-6">
-        <form action="AddSeanceServlet" method="post">
+        <form action="EditMemberServlet" method="post">
+            <input type="hidden" name="id" value="${member.id}">
             <div class="mb-4">
-                <label for="memberId" class="block mb-2">Member ID</label>
-                <input type="number" id="memberId" name="memberId" required min="1" placeholder="Enter Member ID">
+                <label for="username" class="block mb-2">Username</label>
+                <input type="text" id="username" name="username" value="${member.userame}" required placeholder="Enter Username">
             </div>
             <div class="mb-4">
-                <label for="entraineurId" class="block mb-2">Trainer ID</label>
-                <input type="number" id="entraineurId" name="entraineurId" required min="1" placeholder="Enter Trainer ID">
+                <label for="email" class="block mb-2">Email</label>
+                <input type="email" id="email" name="email" value="${member.email}" required placeholder="Enter Email">
             </div>
-<%--            <div class="mb-4">--%>
-<%--                <label for="dateHeure" class="block mb-2">Date and Time</label>--%>
-<%--                <input type="datetime-local" id="dateHeure" name="dateHeure" required>--%>
-<%--            </div>--%>
+            <div class="mb-4">
+                <label for="password" class="block mb-2">Password</label>
+                <input type="password" id="password" name="password" value="${member.password}" required placeholder="Enter Password">
+            </div>
+            <div class="mb-4">
+                <label for="dateNaissance" class="block mb-2">Date of Birth</label>
+                <input type="date" id="dateNaissance" name="dateNaissance" value="${member.dateNaissance}" required>
+            </div>
+            <div class="mb-4">
+                <label for="sport" class="block mb-2">Sport</label>
+                <input type="text" id="sport" name="sport" value="${member.sport}" required placeholder="Enter Sport">
+            </div>
             <div class="flex justify-end space-x-4">
-                <button type="submit" class="btn bg-[#FFD700] text-black font-semibold py-2 px-4 rounded-lg">Add Séance</button>
-                <a href="SeanceServlet" class="btn bg-gray-500 text-white font-semibold py-2 px-4 rounded-lg">Cancel</a>
+                <button type="submit" class="btn bg-[#FFD700] text-black font-semibold py-2 px-4 rounded-lg">Save Changes</button>
+                <a href="MemberServlet" class="btn bg-gray-500 text-white font-semibold py-2 px-4 rounded-lg">Cancel</a>
             </div>
         </form>
         <c:if test="${not empty errorMessage}">

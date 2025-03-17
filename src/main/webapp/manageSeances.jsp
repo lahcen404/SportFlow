@@ -67,8 +67,8 @@
 <nav class="navbar p-4 flex justify-between items-center fixed top-0 w-full z-10">
     <div class="text-4xl font-extrabold text-[#FFD700] tracking-wide">SportFlow Admin</div>
     <div class="space-x-8">
-        <a href="manageMembers.jsp" class="nav-link text-[#FFD700] text-xl font-semibold">Manage Members</a>
-        <a href="manageEntraineurs.jsp" class="nav-link text-[#FFD700] text-xl font-semibold">Manage Entraineurs</a>
+        <a href="MemberServlet" class="nav-link text-[#FFD700] text-xl font-semibold">Manage Members</a>
+        <a href="EntraineurServlet" class="nav-link text-[#FFD700] text-xl font-semibold">Manage Entraineurs</a>
         <a href="manageSeances.jsp" class="nav-link text-[#FFD700] text-xl font-semibold">Manage Séances</a>
         <a href="Logout" class="nav-link text-[#FFD700] text-xl font-semibold hover:text-red-500">Logout</a>
     </div>

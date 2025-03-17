@@ -31,9 +31,19 @@ public class Member {
         this.sport = sport;
     }
 
+    public Member(int id, String username, String email, String dateNaissance, String sport) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.dateNaissance = dateNaissance;
+        this.sport = sport;
+    }
+
     public Member() {
 
     }
+
+
 
     public int getId() {
         return id;
